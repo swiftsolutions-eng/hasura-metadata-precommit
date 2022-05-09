@@ -1,0 +1,17 @@
+{
+  "name": "hasura-metadata-precommit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ade Yahya",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "minimatch": "^5.0.1",
+    "ora": "5"
+  }
+}
