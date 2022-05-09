@@ -6,11 +6,7 @@ const ora = require("ora");
 
 const pattern = "**/hasura/**/*.yaml";
 
-const YAML_CONFIG = {
-	noArrayIndent: true,
-	quotingType: '"',
-	lineWidth: -1,
-};
+const YAML_CONFIG = {};
 
 exec("git diff HEAD --name-only --diff-filter=ACM", async (error, stdout) => {
 	const rawFiles = stdout?.split(/\n/g);
@@ -40,6 +36,7 @@ exec("git diff HEAD --name-only --diff-filter=ACM", async (error, stdout) => {
 				text: `Invalid ${file.value}`,
 			});
 			await fs.writeFile(file.value, formattedYaml);
+			exec(`git add ${file.value}`);
 		} else {
 			spinner.stopAndPersist({
 				symbol: "✅",
